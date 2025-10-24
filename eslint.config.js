@@ -18,7 +18,7 @@ module.exports = [
 
     // 언어 옵션
     languageOptions: {
-      ecmaVersion: 2016,
+      ecmaVersion: 2020,
       sourceType: 'script',
       globals: {
         // Node.js 전역 변수
