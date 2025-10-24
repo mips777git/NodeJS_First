@@ -1,5 +1,6 @@
 const connectDB = require('./config/database');
 const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 // MongoDB 연결
 connectDB();
@@ -13,11 +14,18 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
   },
   age: {
     type: Number,
     min: 0,
+  },
+  newData: {
+    type: Object,
+    default: {},
+  },
+  ID: {
+    type: ObjectId,
+    default: () => new ObjectId(),
   },
   createdAt: {
     type: Date,
@@ -35,6 +43,7 @@ async function runExample() {
       name: '홍길동',
       email: 'hong@example.com',
       age: 25,
+      newData: { hobby: '축구', city: '서울' },
     });
 
     // 저장
